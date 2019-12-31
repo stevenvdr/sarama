@@ -430,9 +430,6 @@ func (c *consumerGroup) handleError(err error, topic string, partition int32) {
 		return
 	}
 
-	c.lock.Lock()
-	defer c.lock.Unlock()
-
 	select {
 	case <-c.closed:
 		//consumer is closed
